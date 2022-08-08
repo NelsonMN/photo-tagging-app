@@ -17,8 +17,15 @@ img {
   user-select: none;
 }
 
-#root {
+.app { 
+  display: flex;
+  flex-direction: column;
   position: relative;
   background: rgb(34,41,44);
   height: 100vh;
+  overflow-y: auto;
+}
+
+.app.inactive {
+  overflow-y: hidden;
 }

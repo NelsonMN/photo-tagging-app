@@ -2,11 +2,17 @@ import '../assets/styles/gameHeader.css';
 import koopa from '../assets/images/characters/koopa.jpg';
 import link from '../assets/images/characters/link.jpg';
 import samus from '../assets/images/characters/samus.jpg';
+import { useContext } from 'react';
+import GameContext from '../context/GameContext';
 
 function GameHeader() {
+  const { gameStarted } = useContext(GameContext);
+
   return (
-    <div className="headerContainer">
-      <h1 className="headerTitle">Search 64</h1>
+    <div
+      className={gameStarted ? 'headerContainer' : 'headerContainer inactive'}
+    >
+      <h1 className="headerTitle">Search N64</h1>
 
       <div className="charactersContainer">
         <div className="characterContainer">
@@ -23,7 +29,7 @@ function GameHeader() {
         </div>
       </div>
 
-      <p className="timer">0:00:00</p>
+      <p className={gameStarted ? 'timer' : 'timer inactive'}>0:00:00</p>
     </div>
   );
 }

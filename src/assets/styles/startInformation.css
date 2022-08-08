@@ -1,0 +1,41 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  border-radius: 20px;
+}
+
+.informationContainer {
+  width: 800px;
+  background: white;
+  height: 600px;
+}
+
+@media (max-width: 1000px) {
+  .informationContainer {
+    width: 600px;
+    background: white;
+    height: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .informationContainer {
+    width: 400px;
+    background: white;
+    height: 300px;
+  }
+}
+
+@media (max-width: 450px) {
+  .informationContainer {
+    width: 350px;
+    background: white;
+    height: 250px;
+  }
+}

@@ -2,7 +2,10 @@
   background-color: inherit;
 }
 
+.gameDiv.inactive {
+  opacity: 0.05;
+}
+
 .gameImage {
   width: 100%;
 }
-
