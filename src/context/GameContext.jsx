@@ -18,8 +18,12 @@ export const GameProvider = ({ children }) => {
 
   const [time, setTime] = useState(0);
 
+  const startGame = () => {
+    setGameStarted(true);
+  };
+
   return (
-    <GameContext.Provider value={{ gameStarted }}>
+    <GameContext.Provider value={{ gameStarted, startGame }}>
       {children}
     </GameContext.Provider>
   );

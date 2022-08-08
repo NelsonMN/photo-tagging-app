@@ -7,6 +7,7 @@
   z-index: 1000;
   width: 100%;
   height: 100vh;
+  gap: 1rem;
 }
 
 .startTitle {
@@ -16,21 +17,16 @@
 }
 
 .startInformationContainer {
+  display: flex;
   border-radius: 18px;
   width: 750px;
-  background: white;
   height: 600px;
 }
-
-.startContentContainer {
-  display: flex;
-}
-
 
 .startImage {
   width: 375px;
   height: 600px;
-  object-fit:fill;
+  object-fit: fill;
   border-radius: 15px 0 0 15px;
 }
 
@@ -38,20 +34,91 @@
   display: flex;
   flex-direction: column;
   align-items: center; 
-  width: 375px
+  justify-content: space-evenly;
+  width: 375px;
+  background-color: #fff2e1;
+  border-radius: 0 15px 15px 0;
+}
+
+.startCharacterContainer {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.startCharacter {
+  display: flex;
+  align-items: center;
+  gap: 4.5rem;
+}
+
+.startCharacter:hover {
+  transition: 300ms;
+  transform: scale(1.05);
+}
+
+.startCharacter > img {
+  height: 140px;
+  width: 140px;
+}
+
+.startGameButton {
+  padding: .70rem 2.75rem;
+  border-radius: 12px;
+  border: none;
+  background-color: rgb(34,41,44);
+  color: #ffff;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 500ms;
+  font-size: 1.15rem;
+}
+
+.startGameButton:hover {
+  transition: 500ms;
+  opacity: 1;
+  
+}
+
+.characterTitle {
+  color: rgb(195, 51, 68);
+  font-size: 1.25rem;
+}
+
+.characterOrigin {
+  font-size: 1rem;
+}
+
+.startInstructionsContainer > div > h2,
+.startInstructionsContainer > div > h4,
+.startInstructionsContainer > p {
+  text-align: center;
 }
 
 
 @media (max-width: 1000px) {
   .startTitle {
     font-size: 3rem;
-
   }
 
   .startInformationContainer {
     width: 600px;
-    background: white;
     height: 400px;
+  }
+
+  .startInstructionsContainer > div > h2 {
+    font-size: 1.125rem;
+    text-align: center;
+  }
+  .startInstructionsContainer > div > h4 {
+    font-size: .95rem;
+    text-align: center;
+  }
+  
+  .startInstructionsContainer > p {
+    font-size: .65rem;
+    text-align: center;
   }
 
   .startImage {
@@ -60,6 +127,39 @@
     object-fit: fill;
     border-radius: 15px 0 0 15px;
   }
+
+  .startCharacter {
+    display: flex;
+    align-items: center;
+    gap: 4.5rem;
+  }
+  
+  .startCharacter > img {
+    height: 75px;
+    width: 75px;
+  }
+
+  .startCharacterContainer {
+    gap: 0;
+  }
+
+  .startInstructionsContainer > p {
+    font-size: .85rem;
+  }
+
+  .startGameButton {
+    padding: .5rem 2rem;
+    font-size: 1.125rem;
+  }
+
+  .characterTitle {
+    font-size: 1.125rem;
+  }
+
+  .characterOrigin {
+    font-size: .95rem;
+  }
+  
 }
 
 @media (max-width: 600px) {
@@ -69,15 +169,56 @@
 
   .startInformationContainer {
     width: 400px;
-    background: white;
     height: 300px;
   }
 
+  .startInstructionsContainer > div > h2 {
+    font-size: .95rem;
+    text-align: center;
+  }
+  .startInstructionsContainer > div > h4 {
+    font-size: .75rem;
+    text-align: center;
+  }
+  
+  .startInstructionsContainer > p {
+    font-size: .65rem;
+    text-align: center;
+  }
+  
   .startImage {
     width: 200px;
     height: 300px;
     object-fit:fill;
     border-radius: 15px 0 0 15px;
+  }
+
+  .startCharacter {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .startCharacter > img {
+    height: 60px;
+    width: 60px;
+  }
+
+  .startCharacterContainer {
+    gap: 0;
+  }
+
+  .startGameButton {
+    padding: .3rem 1.6rem;
+    font-size: .95rem;
+  }
+
+  .characterTitle {
+    font-size: .95rem;
+  }
+
+  .characterOrigin {
+    font-size: .75rem;
   }
 }
 
@@ -88,7 +229,6 @@
 
   .startInformationContainer {
     width: 350px;
-    background: white;
     height: 250px;
   }
 
@@ -97,5 +237,33 @@
     height: 250px;
     object-fit:fill;
     border-radius: 15px 0 0 15px;
+  }
+
+  .startInstructionsContainer > div > h2 {
+    font-size: .75rem;
+    text-align: center;
+  }
+  .startInstructionsContainer > div > h4 {
+    font-size: .55rem;
+    text-align: center;
+  }
+
+  .startGameButton {
+    padding: .3rem 1.5rem;
+    font-size: .75rem;
+    border-radius: 10px;
+  }
+  
+  .startInstructionsContainer > p {
+    font-size: .50rem;
+    text-align: center;
+  }
+
+  .characterTitle {
+    font-size: .75rem;
+  }
+  
+  .characterOrigin {
+    font-size: .55rem;
   }
 }
