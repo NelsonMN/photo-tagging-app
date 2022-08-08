@@ -9,9 +9,18 @@ function GameHeader() {
       <h1 className="headerTitle">Search 64</h1>
 
       <div className="charactersContainer">
-        <img src={koopa} alt="koopa" className="character" />
-        <img src={link} alt="link" className="character" />
-        <img src={samus} alt="samus" className="character" />
+        <div className="characterContainer">
+          <img src={koopa} alt="koopa" className="character" />
+          <p>Koopa</p>
+        </div>
+        <div className="characterContainer">
+          <img src={link} alt="link" className="character" />
+          <p>Link</p>
+        </div>
+        <div className="characterContainer">
+          <img src={samus} alt="samus" className="character" />
+          <p>Samus</p>
+        </div>
       </div>
 
       <p className="timer">0:00:00</p>
