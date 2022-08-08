@@ -1,7 +1,7 @@
 import '../assets/styles/gameHeader.css';
-import koopa from '../assets/images/characters/koopa.jpg';
-import link from '../assets/images/characters/link.jpg';
-import samus from '../assets/images/characters/samus.jpg';
+import Koopa from '../assets/images/characters/koopa.jpg';
+import Link from '../assets/images/characters/link.jpg';
+import Samus from '../assets/images/characters/samus.jpg';
 import { useContext } from 'react';
 import GameContext from '../context/GameContext';
 
@@ -16,15 +16,15 @@ function GameHeader() {
 
       <div className="charactersContainer">
         <div className="characterContainer">
-          <img src={koopa} alt="koopa" className="character" />
+          <img src={Koopa} alt="koopa" className="character" />
           <p>Koopa</p>
         </div>
         <div className="characterContainer">
-          <img src={link} alt="link" className="character" />
+          <img src={Link} alt="link" className="character" />
           <p>Link</p>
         </div>
         <div className="characterContainer">
-          <img src={samus} alt="samus" className="character" />
+          <img src={Samus} alt="samus" className="character" />
           <p>Samus</p>
         </div>
       </div>

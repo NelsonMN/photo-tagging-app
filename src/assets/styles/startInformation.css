@@ -7,35 +7,95 @@
   z-index: 1000;
   width: 100%;
   height: 100vh;
-  border-radius: 20px;
 }
 
-.informationContainer {
-  width: 800px;
+.startTitle {
+  color: white;
+  font-size: 3.25rem;
+  font-weight: 100;
+}
+
+.startInformationContainer {
+  border-radius: 18px;
+  width: 750px;
   background: white;
   height: 600px;
 }
 
+.startContentContainer {
+  display: flex;
+}
+
+
+.startImage {
+  width: 375px;
+  height: 600px;
+  object-fit:fill;
+  border-radius: 15px 0 0 15px;
+}
+
+.startInstructionsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 375px
+}
+
+
 @media (max-width: 1000px) {
-  .informationContainer {
+  .startTitle {
+    font-size: 3rem;
+
+  }
+
+  .startInformationContainer {
     width: 600px;
     background: white;
     height: 400px;
   }
+
+  .startImage {
+    width: 300px;
+    height: 400px;
+    object-fit: fill;
+    border-radius: 15px 0 0 15px;
+  }
 }
 
 @media (max-width: 600px) {
-  .informationContainer {
+  .startTitle {
+    font-size: 2.5rem;
+  }
+
+  .startInformationContainer {
     width: 400px;
     background: white;
     height: 300px;
   }
+
+  .startImage {
+    width: 200px;
+    height: 300px;
+    object-fit:fill;
+    border-radius: 15px 0 0 15px;
+  }
 }
 
 @media (max-width: 450px) {
-  .informationContainer {
+  .startTitle {
+    font-size: 1.5rem;
+  }
+
+  .startInformationContainer {
     width: 350px;
     background: white;
     height: 250px;
+  }
+
+  .startImage {
+    width: 175px;
+    height: 250px;
+    object-fit:fill;
+    border-radius: 15px 0 0 15px;
   }
 }
