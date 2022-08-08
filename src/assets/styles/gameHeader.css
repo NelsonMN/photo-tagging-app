@@ -1,0 +1,38 @@
+/* @font-face {
+  font-family: 'HeaderFont';
+  src: url(../fonts/HeaderFont.ttf) format('truetype');
+} */
+
+.headerContainer {
+  background-color: rgb(246, 102, 119);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerTitle {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.75rem;
+}
+
+/* Character */
+
+.charactersContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.character {
+  height: 85px;
+  width: 85px;
+  pointer-events: none;
+}
+
+/* Timer */
+
+.timer {
+  font-family: 'HeaderFont';
+  font-size: 1.75rem;
+}
