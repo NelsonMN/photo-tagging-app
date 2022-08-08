@@ -9,11 +9,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100vw;
 }
 
 .headerTitle {
-  font-family:Georgia, 'Times New Roman', Times, serif;
   font-size: 1.75rem;
+  font-weight: 100;
 }
 
 /* Character */
@@ -33,6 +34,49 @@
 /* Timer */
 
 .timer {
-  font-family: 'HeaderFont';
   font-size: 1.75rem;
+}
+
+@media (max-width: 600px) {
+  .headerTitle {
+    font-size: 1.5rem;
+  }
+
+  .charactersContainer {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+  }
+
+  .character {
+    height: 65px;
+    width: 65px;
+    pointer-events: none;
+  }
+
+  .timer {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .headerTitle {
+    font-size: 1.25rem;
+  }
+
+  .charactersContainer {
+    display: flex;
+    align-items: center;
+    gap: .15rem;
+  }
+
+  .character {
+    height: 45px;
+    width: 45px;
+    pointer-events: none;
+  }
+
+  .timer {
+    font-size: 1.25rem;
+  }
 }
