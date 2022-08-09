@@ -4,7 +4,7 @@ import { createContext, useState } from 'react';
 const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
-  const [gameStarted, setGameStarted] = useState(false);
+  const [gameStarted, setGameStarted] = useState(true);
   const [gameOver, setGameOver] = useState(false);
 
   const [characterChoice, setCharacterChoice] = useState([]);
@@ -29,6 +29,8 @@ export const GameProvider = ({ children }) => {
     if (gameStarted) {
       setTimeout(() => setTime(time + 1), 1000);
     }
+
+    return () => clearTimeout();
   }, [time, gameStarted]);
 
   const getCoordinates = (e) => {

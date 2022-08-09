@@ -52,14 +52,15 @@
 
 /* Timer */
 
+.timerContainer {
+  width: 150px;
+}
+
 .timer {
   font-size: 2rem;
   visibility: visible;
 }
 
-.timerContainer {
-  width: 200px;
-}
 
 .timer.inactive {
   visibility: hidden;
@@ -75,12 +76,12 @@
     gap: 1.5rem;
   }
 
-  .timer {
-    font-size: 1.85rem;
+  .timerContainer {
+    width: 135px;
   }
 
-  .timerContainer {
-    width: 180px;
+  .timer {
+    font-size: 1.85rem;
   }
 }
 
@@ -110,13 +111,14 @@
     pointer-events: none;
   }
 
+  .timerContainer {
+    width: 100px;
+  }
+
   .timer {
     font-size: 1.5rem;
   }
 
-  .timerContainer {
-    width: 140px;
-  }
 }
 
 @media (max-width: 500px) {
@@ -142,6 +144,10 @@
     height: 45px;
     width: 45px;
     pointer-events: none;
+  }
+
+  .timerContainer {
+    width: 80px;
   }
 
   .timer {
