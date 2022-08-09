@@ -1,7 +1,3 @@
-.gameDiv {
-  background-color: inherit;
-}
-
 .gameDiv.inactive {
   opacity: 0.05;
 }

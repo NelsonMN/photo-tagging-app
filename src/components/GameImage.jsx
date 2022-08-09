@@ -4,11 +4,16 @@ import '../assets/styles/gameImage.css';
 import GameContext from '../context/GameContext';
 
 function GameImage() {
-  const { gameStarted } = useContext(GameContext);
+  const { gameStarted, getCoordinates } = useContext(GameContext);
 
   return (
     <div className={gameStarted ? 'gameDiv' : 'gameDiv inactive'}>
-      <img src={gameImage} alt="gameImage" className="gameImage" />
+      <img
+        onClick={getCoordinates}
+        src={gameImage}
+        alt="gameImage"
+        className="gameImage"
+      />
     </div>
   );
 }
