@@ -2,12 +2,12 @@ import '../assets/styles/startInformation.css';
 import GameImage from '../assets/images/N64.jpg';
 import Koopa from '../assets/images/characters/koopa.jpg';
 import Link from '../assets/images/characters/link.jpg';
-import Samus from '../assets/images/characters/samus.jpg';
+import CaptainFalcon from '../assets/images/characters/captainFalcon.jpg';
 import { useContext } from 'react';
 import GameContext from '../context/GameContext';
 
 function StartInformation() {
-  const { startGame } = useContext(GameContext);
+  const { handleStart } = useContext(GameContext);
   return (
     <div className="pageContainer">
       <h1 className="startTitle">Search N64</h1>
@@ -39,15 +39,15 @@ function StartInformation() {
               </div>
             </div>
             <div className="startCharacter">
-              <img src={Samus} alt="samus" />
+              <img src={CaptainFalcon} alt="samus" />
               <div>
-                <h3 className="characterTitle">Samus</h3>
-                <h5 className="characterOrigin">Metriod</h5>
+                <h3 className="characterTitle">Captain Falcon</h3>
+                <h5 className="characterOrigin">F-Zero</h5>
               </div>
             </div>
           </div>
 
-          <button onClick={() => startGame()} className="startGameButton">
+          <button onClick={handleStart} className="startGameButton">
             Start
           </button>
         </div>

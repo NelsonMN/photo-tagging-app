@@ -1,12 +1,20 @@
 import '../assets/styles/gameHeader.css';
 import Koopa from '../assets/images/characters/koopa.jpg';
 import Link from '../assets/images/characters/link.jpg';
-import Samus from '../assets/images/characters/samus.jpg';
-import { useContext } from 'react';
+import CaptainFalcon from '../assets/images/characters/captainFalcon.jpg';
+import { useState, useContext } from 'react';
 import GameContext from '../context/GameContext';
+import { convertTime } from '../utils/timeConverter';
+import { useEffect } from 'react';
 
 function GameHeader() {
-  const { gameStarted } = useContext(GameContext);
+  const { gameStarted, time } = useContext(GameContext);
+
+  const [timerDisplay, setTimerDisplay] = useState(null);
+
+  useEffect(() => {
+    setTimerDisplay(convertTime(time));
+  }, [time]);
 
   return (
     <div
@@ -24,12 +32,15 @@ function GameHeader() {
           <p>Link</p>
         </div>
         <div className="characterContainer">
-          <img src={Samus} alt="samus" className="character" />
-          <p>Samus</p>
+          <img src={CaptainFalcon} alt="captain falcon" className="character" />
+          <p>C. Falcon</p>
         </div>
       </div>
-
-      <p className={gameStarted ? 'timer' : 'timer inactive'}>0:00:00</p>
+      <div className="timerContainer">
+        <p className={gameStarted ? 'timer' : 'timer inactive'}>
+          {timerDisplay}
+        </p>
+      </div>
     </div>
   );
 }

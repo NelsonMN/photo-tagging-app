@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Orbitron';
+  src: url(../fonts/Orbitron.ttf) format('truetype');
+}
+
 .headerContainer {
   background-color: rgb(34,41,44);
   padding: 1rem;
@@ -14,7 +19,7 @@
 }
 
 .headerTitle {
-  font-size: 2.25rem;
+  font-size: 2.75rem;
   font-weight: 100;
 }
 
@@ -24,6 +29,7 @@
   display: flex;
   align-items: center;
   gap: 2rem;
+  text-align: center;
 }
 
 .characterContainer {
@@ -32,6 +38,10 @@
   width: 6rem;
   align-items: center;
   gap: .5rem;
+}
+
+.characterContainer > p {
+  font-size: 1rem;
 }
 
 .character {
@@ -47,13 +57,30 @@
   visibility: visible;
 }
 
+.timerContainer {
+  width: 200px;
+}
+
 .timer.inactive {
   visibility: hidden;
 }
 
 @media (max-width: 1300px) {
+  .headerTitle {
+    font-size: 2rem;
+    text-align: center;
+  }
+
   .charactersContainer {
     gap: 1.5rem;
+  }
+
+  .timer {
+    font-size: 1.85rem;
+  }
+
+  .timerContainer {
+    width: 180px;
   }
 }
 
@@ -73,6 +100,10 @@
     gap: .4rem;
   }
 
+  .characterContainer > p {
+    font-size: .85rem;
+  }
+
   .character {
     height: 65px;
     width: 65px;
@@ -81,6 +112,10 @@
 
   .timer {
     font-size: 1.5rem;
+  }
+
+  .timerContainer {
+    width: 140px;
   }
 }
 
@@ -97,6 +132,10 @@
 
   .characterContainer {
     width: 3.5rem;
+  }
+
+  .characterContainer > p {
+    font-size: .65rem;
   }
 
   .character {
