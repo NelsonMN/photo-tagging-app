@@ -4,12 +4,14 @@ import { createContext, useState } from 'react';
 const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
-  const [gameStarted, setGameStarted] = useState(true);
+  const [gameStarted, setGameStarted] = useState(false);
+
   const [gameOver, setGameOver] = useState(false);
 
   const [characterChoice, setCharacterChoice] = useState([]);
 
   const [toggle, setToggle] = useState(false);
+
   const [choosing, setChoosing] = useState({
     choice: null,
     coordinates: { x: 0, y: 0 },
@@ -21,6 +23,7 @@ export const GameProvider = ({ children }) => {
     'Link',
     'Captain Falcon',
   ]);
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const [time, setTime] = useState(0);
