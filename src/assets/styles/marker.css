@@ -8,8 +8,8 @@
 }
 
 .marker {
-  height: 60px;
-  width: 60px;
+  height: 70px;
+  width: 70px;
   border: 2px solid #ffff;
   z-index: 20;
   border-radius: 8px;
@@ -28,4 +28,47 @@
 
 .characterName:hover {
   background-color: rgb(103, 98, 202);
+}
+
+@media (max-width: 1300px) {
+  .marker {
+    height: 60px;
+    width: 60px;
+  }
+
+  .characterName {
+    font-size: .85rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .marker {
+    height: 50px;
+    width: 50px;
+  }
+
+  .characterName {
+    font-size: .80rem;
+  }
+}
+
+@media (max-width: 670px) {
+  .marker {
+    height: 40px;
+    width: 40px;
+  }
+
+  .characterName {
+    font-size: .70rem;
+  }
+}
+@media (max-width: 500px) {
+  .marker {
+    height: 30px;
+    width: 30px;
+  }
+
+  .characterName {
+    font-size: .60rem;
+  }
 }
