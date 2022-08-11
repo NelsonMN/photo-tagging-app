@@ -5,14 +5,13 @@ const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
   const [gameStarted, setGameStarted] = useState(false);
-
   const [gameOver, setGameOver] = useState(false);
-
   const [characterChoice, setCharacterChoice] = useState([]);
+  const [choosing, setChoosing] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [time, setTime] = useState(0);
 
-  const [toggle, setToggle] = useState(false);
-
-  const [choosing, setChoosing] = useState({
+  const [choice, setChoice] = useState({
     choice: null,
     coordinates: { x: 0, y: 0 },
     correct: false,
@@ -21,12 +20,13 @@ export const GameProvider = ({ children }) => {
   const [charactersRemaining, setCharactersRemaining] = useState([
     'Koopa',
     'Link',
-    'Captain Falcon',
+    'C. Falcon',
   ]);
 
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const [time, setTime] = useState(0);
+  const [calibratedCoordinates, setCalibratedCoordinates] = useState({
+    x: 0,
+    y: 0,
+  });
 
   useEffect(() => {
     if (gameStarted) {
@@ -36,26 +36,45 @@ export const GameProvider = ({ children }) => {
     return () => clearTimeout();
   }, [time, gameStarted]);
 
-  const getCoordinates = (e) => {
+  const getCalibratedCoordinates = (e) => {
     const offset = e.currentTarget.getBoundingClientRect();
     const x = e.pageX - offset.left;
     const y = e.pageY - offset.top;
     const coordinateX = Math.floor((x / window.innerWidth) * 100);
     const coordinateY = Math.floor((y / window.innerWidth) * 100);
-    setMousePosition({ x: coordinateX, y: coordinateY });
+    setCalibratedCoordinates({ x: coordinateX, y: coordinateY });
   };
 
   const handleStart = () => {
     setGameStarted((prevState) => !prevState);
   };
 
-  const handleClick = (e) => {
-    getCoordinates(e);
+  const handleImgClick = (e) => {
+    getCalibratedCoordinates(e);
+    setMousePosition({
+      x: e.pageX - e.currentTarget.getBoundingClientRect().left,
+      y: e.pageY - e.currentTarget.getBoundingClientRect().top,
+    });
+    setChoosing(true);
+  };
+
+  const handleChoice = (e) => {
+    console.log('You have chosen', e.target.textContent);
+    setChoosing(false);
   };
 
   return (
     <GameContext.Provider
-      value={{ gameStarted, toggle, time, handleClick, handleStart }}
+      value={{
+        charactersRemaining,
+        gameStarted,
+        time,
+        choosing,
+        mousePosition,
+        handleImgClick,
+        handleStart,
+        handleChoice,
+      }}
     >
       {children}
     </GameContext.Provider>

@@ -12,9 +12,9 @@ function GameHeader() {
 
   const [timerDisplay, setTimerDisplay] = useState(null);
 
-  useEffect(() => {
-    setTimerDisplay(convertTime(time));
-  }, [time]);
+  // useEffect(() => {
+  //   setTimerDisplay(convertTime(time));
+  // }, [time]);
 
   return (
     <div
@@ -38,7 +38,7 @@ function GameHeader() {
       </div>
       <div className="timerContainer">
         <p className={gameStarted ? 'timer' : 'timer inactive'}>
-          {timerDisplay}
+          {timerDisplay ?? '0:00:00'}
         </p>
       </div>
     </div>
