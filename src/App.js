@@ -4,10 +4,11 @@ import GameHeader from './components/GameHeader';
 import GameImage from './components/GameImage';
 import CursorMarker from './components/CursorMarker';
 import GameStart from './components/GameStart';
+import GameOver from './components/GameOver';
 import GameContext from './context/GameContext';
 
 function App() {
-  const { gameStarted, choice } = useContext(GameContext);
+  const { gameStarted, gameOver, choice } = useContext(GameContext);
 
   return (
     <div className={gameStarted ? 'app' : 'app inactive'}>
@@ -22,6 +23,7 @@ function App() {
         ''
       )}
       {!gameStarted && <GameStart />}
+      {gameOver && <GameOver />}
       <GameImage />
       <CursorMarker />
     </div>

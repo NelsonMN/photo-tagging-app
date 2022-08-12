@@ -4,7 +4,7 @@ import '../assets/styles/gameImage.css';
 import GameContext from '../context/GameContext';
 
 function GameImage() {
-  const { gameStarted, handleImgClick, gameOver } = useContext(GameContext);
+  const { gameStarted, handleImgClick } = useContext(GameContext);
 
   return (
     <div className={gameStarted ? 'gameDiv' : 'gameDiv inactive'}>

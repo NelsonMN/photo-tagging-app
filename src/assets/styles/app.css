@@ -37,9 +37,39 @@ img {
   font-size: 1.75rem; 
   z-index: 40;
   transform: translate(-50%, -50%);
-  top: 20%;
+  top: 25%;
   left: 50%;
   background: rgb(34,41,44);
   padding: 0.5rem 1rem;
   border-radius: 8px;
+}
+
+@media (max-width: 1300px) {
+  .message {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .message {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 730px) {
+  .message {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .message {
+    font-size: .85rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .message {
+    font-size: .65rem;
+  }
 }
