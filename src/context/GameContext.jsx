@@ -1,21 +1,16 @@
 import { useEffect } from 'react';
 import { createContext, useState } from 'react';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebase.config';
 
 const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
-  const [characterChoice, setCharacterChoice] = useState([]);
   const [choosing, setChoosing] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [time, setTime] = useState(0);
-
-  const [choice, setChoice] = useState({
-    choice: null,
-    coordinates: { x: 0, y: 0 },
-    correct: false,
-  });
 
   const [charactersRemaining, setCharactersRemaining] = useState([
     'Koopa',
@@ -42,7 +37,25 @@ export const GameProvider = ({ children }) => {
     const y = e.pageY - offset.top;
     const coordinateX = Math.floor((x / window.innerWidth) * 100);
     const coordinateY = Math.floor((y / window.innerWidth) * 100);
-    setCalibratedCoordinates({ x: coordinateX, y: coordinateY });
+
+    return { x: coordinateX, y: coordinateY };
+  };
+
+  const getCharacterData = async (char) => {
+    const charRef = doc(db, 'characters', char);
+    const charSnapShot = await getDoc(charRef);
+
+    return charSnapShot.data().coordinates;
+  };
+
+  // Checks db if coordinates match player's choice
+  const checkForMatch = async (e) => {
+    const charCoordinates = await getCharacterData(e.target.textContent);
+
+    return (
+      charCoordinates.x.includes(calibratedCoordinates.x) &&
+      charCoordinates.y.includes(calibratedCoordinates.y)
+    );
   };
 
   const handleStart = () => {
@@ -50,16 +63,26 @@ export const GameProvider = ({ children }) => {
   };
 
   const handleImgClick = (e) => {
-    getCalibratedCoordinates(e);
+    setCalibratedCoordinates(getCalibratedCoordinates(e));
+
     setMousePosition({
       x: e.pageX - e.currentTarget.getBoundingClientRect().left,
       y: e.pageY - e.currentTarget.getBoundingClientRect().top,
     });
+
     setChoosing(true);
   };
 
-  const handleChoice = (e) => {
-    console.log('You have chosen', e.target.textContent);
+  // If result is a match, remove it from charactersRemaining
+  const handleChoice = async (e) => {
+    const result = await checkForMatch(e);
+
+    if (result) {
+      setCharactersRemaining((prevState) =>
+        prevState.filter((char) => char !== e.target.textContent)
+      );
+    }
+
     setChoosing(false);
   };
 
