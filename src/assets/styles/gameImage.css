@@ -4,4 +4,5 @@
 
 .gameImage {
   width: 100%;
+  -webkit-user-drag: none;
 }

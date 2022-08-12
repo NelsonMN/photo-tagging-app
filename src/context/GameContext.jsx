@@ -78,9 +78,12 @@ export const GameProvider = ({ children }) => {
     const result = await checkForMatch(e);
 
     if (result) {
+      // Message to say it's correct
       setCharactersRemaining((prevState) =>
         prevState.filter((char) => char !== e.target.textContent)
       );
+    } else {
+      // Message to say it's false
     }
 
     setChoosing(false);
