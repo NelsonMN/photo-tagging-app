@@ -115,18 +115,13 @@ export const GameProvider = ({ children }) => {
     setChoosing(false);
   };
 
-  const handleGameOver = () => {
-    if (charactersRemaining.length === 0) {
-      setGameOver(true);
-    }
-  };
-
   return (
     <GameContext.Provider
       value={{
         charactersRemaining,
         choice,
         gameStarted,
+        gameOver,
         time,
         choosing,
         mousePosition,

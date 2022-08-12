@@ -6,7 +6,7 @@ import CaptainFalcon from '../assets/images/characters/captainFalcon.jpg';
 import { useContext } from 'react';
 import GameContext from '../context/GameContext';
 
-function StartInformation() {
+function GameStart() {
   const { handleStart } = useContext(GameContext);
   return (
     <div className="pageContainer">
@@ -55,4 +55,4 @@ function StartInformation() {
     </div>
   );
 }
-export default StartInformation;
+export default GameStart;

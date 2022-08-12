@@ -2,14 +2,19 @@ import { useContext } from 'react';
 import GameContext from '../context/GameContext';
 import '../assets/styles/marker.css';
 
-function Marker() {
+function CursorMarker() {
   const {
     charactersRemaining,
     choosing,
     mousePosition,
     handleChoice,
     setChoice,
+    gameOver,
   } = useContext(GameContext);
+
+  if (gameOver) {
+    return;
+  }
 
   return (
     choosing && (
@@ -36,4 +41,4 @@ function Marker() {
     )
   );
 }
-export default Marker;
+export default CursorMarker;
