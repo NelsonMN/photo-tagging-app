@@ -8,7 +8,7 @@ import { convertTime } from '../utils/timeConverter';
 import { useEffect } from 'react';
 
 function GameHeader() {
-  const { gameStarted, time } = useContext(GameContext);
+  const { charactersRemaining, gameStarted, time } = useContext(GameContext);
 
   const [timerDisplay, setTimerDisplay] = useState(null);
 
@@ -24,16 +24,64 @@ function GameHeader() {
 
       <div className="charactersContainer">
         <div className="characterContainer">
-          <img src={Koopa} alt="koopa" className="character" />
-          <p>Koopa</p>
+          <img
+            src={Koopa}
+            alt="koopa"
+            className={
+              charactersRemaining.includes('Koopa')
+                ? 'character'
+                : 'character found'
+            }
+          />
+          <p
+            style={
+              charactersRemaining.includes('Koopa')
+                ? {}
+                : { textDecoration: 'line-through', opacity: '0.2' }
+            }
+          >
+            Koopa
+          </p>
         </div>
         <div className="characterContainer">
-          <img src={Link} alt="link" className="character" />
-          <p>Link</p>
+          <img
+            src={Link}
+            alt="link"
+            className={
+              charactersRemaining.includes('Link')
+                ? 'character'
+                : 'character found'
+            }
+          />
+          <p
+            style={
+              charactersRemaining.includes('Link')
+                ? {}
+                : { textDecoration: 'line-through', opacity: '0.2' }
+            }
+          >
+            Link
+          </p>
         </div>
         <div className="characterContainer">
-          <img src={CaptainFalcon} alt="captain falcon" className="character" />
-          <p>C. Falcon</p>
+          <img
+            src={CaptainFalcon}
+            alt="captain falcon"
+            className={
+              charactersRemaining.includes('C. Falcon')
+                ? 'character'
+                : 'character found'
+            }
+          />
+          <p
+            style={
+              charactersRemaining.includes('C. Falcon')
+                ? {}
+                : { textDecoration: 'line-through', opacity: '0.2' }
+            }
+          >
+            C. Falcon
+          </p>
         </div>
       </div>
       <div className="timerContainer">

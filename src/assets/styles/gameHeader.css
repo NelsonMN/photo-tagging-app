@@ -50,6 +50,10 @@
   pointer-events: none;
 }
 
+.found {
+  opacity: 0.1;
+}
+
 /* Timer */
 
 .timerContainer {
@@ -109,6 +113,7 @@
     height: 65px;
     width: 65px;
     pointer-events: none;
+
   }
 
   .timerContainer {
