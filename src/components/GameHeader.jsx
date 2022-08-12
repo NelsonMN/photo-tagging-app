@@ -85,9 +85,11 @@ function GameHeader() {
         </div>
       </div>
       <div className="timerContainer">
-        <p className={gameStarted ? 'timer' : 'timer inactive'}>
-          {timerDisplay}
-        </p>
+        <div>
+          <p className={gameStarted ? 'timer' : 'timer inactive'}>
+            {timerDisplay}
+          </p>
+        </div>
       </div>
     </div>
   );

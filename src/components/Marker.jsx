@@ -3,8 +3,13 @@ import GameContext from '../context/GameContext';
 import '../assets/styles/marker.css';
 
 function Marker() {
-  const { charactersRemaining, choosing, mousePosition, handleChoice } =
-    useContext(GameContext);
+  const {
+    charactersRemaining,
+    choosing,
+    mousePosition,
+    handleChoice,
+    setChoice,
+  } = useContext(GameContext);
 
   return (
     choosing && (
@@ -15,7 +20,14 @@ function Marker() {
         <div className="marker"></div>
         <ul className="characterList">
           {charactersRemaining.map((character, index) => (
-            <li key={index} onClick={handleChoice} className="characterName">
+            <li
+              key={index}
+              onClick={(e) => {
+                setChoice(true);
+                handleChoice(e);
+              }}
+              className="characterName"
+            >
               {character}
             </li>
           ))}

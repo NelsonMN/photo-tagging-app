@@ -30,3 +30,16 @@ img {
 .app.inactive {
   overflow-y: hidden;
 }
+
+.message {
+  position: fixed;
+  color: white;
+  font-size: 1.75rem; 
+  z-index: 40;
+  transform: translate(-50%, -50%);
+  top: 20%;
+  left: 50%;
+  background: rgb(34,41,44);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}

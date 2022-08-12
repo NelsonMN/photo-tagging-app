@@ -8,7 +8,14 @@ const GameContext = createContext();
 export const GameProvider = ({ children }) => {
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+
   const [choosing, setChoosing] = useState(false);
+  const [choice, setChoice] = useState({
+    character: null,
+    correct: false,
+    chosen: false,
+  });
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [time, setTime] = useState(0);
 
@@ -24,12 +31,28 @@ export const GameProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    if (gameStarted) {
+    if (gameStarted && !gameOver) {
       setTimeout(() => setTime(time + 1), 1000);
     }
 
     return () => clearTimeout();
-  }, [time, gameStarted]);
+  }, [time, gameStarted, gameOver]);
+
+  useEffect(() => {
+    if (choice.chosen) {
+      setTimeout(() => {
+        setChoice({ character: null, correct: false, chosen: false });
+      }, 3000);
+    }
+  }, [choice]);
+
+  useEffect(() => {
+    if (charactersRemaining.length === 0) {
+      setGameOver(true);
+      window.alert(`You won in ${time} seconds!`);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [charactersRemaining]);
 
   const getCalibratedCoordinates = (e) => {
     const offset = e.currentTarget.getBoundingClientRect();
@@ -77,22 +100,32 @@ export const GameProvider = ({ children }) => {
   const handleChoice = async (e) => {
     const result = await checkForMatch(e);
 
+    setChoice({
+      character: e.target.textContent,
+      correct: result,
+      chosen: true,
+    });
+
     if (result) {
-      // Message to say it's correct
       setCharactersRemaining((prevState) =>
         prevState.filter((char) => char !== e.target.textContent)
       );
-    } else {
-      // Message to say it's false
     }
 
     setChoosing(false);
+  };
+
+  const handleGameOver = () => {
+    if (charactersRemaining.length === 0) {
+      setGameOver(true);
+    }
   };
 
   return (
     <GameContext.Provider
       value={{
         charactersRemaining,
+        choice,
         gameStarted,
         time,
         choosing,
@@ -100,6 +133,7 @@ export const GameProvider = ({ children }) => {
         handleImgClick,
         handleStart,
         handleChoice,
+        setChoice,
       }}
     >
       {children}
