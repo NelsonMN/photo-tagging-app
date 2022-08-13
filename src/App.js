@@ -13,15 +13,13 @@ function App() {
   return (
     <div className={gameStarted ? 'app' : 'app inactive'}>
       <GameHeader />
-      {choice.chosen ? (
-        choice.correct ? (
+      {choice.chosen &&
+        !gameOver &&
+        (choice.correct ? (
           <p className="message">You found {choice.character}. Great job!</p>
         ) : (
           <p className="message">That's not {choice.character}. Try again!</p>
-        )
-      ) : (
-        ''
-      )}
+        ))}
       {!gameStarted && <GameStart />}
       {gameOver && <GameOver />}
       <GameImage />

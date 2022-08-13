@@ -34,15 +34,15 @@ export const GameProvider = ({ children }) => {
     if (gameStarted && !gameOver) {
       setTimeout(() => setTime(time + 1), 1000);
     }
-
-    return () => clearTimeout();
   }, [time, gameStarted, gameOver]);
 
   useEffect(() => {
     if (choice.chosen) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         setChoice({ character: null, correct: false, chosen: false });
       }, 3000);
+
+      return () => clearTimeout(timer);
     }
   }, [choice]);
 
