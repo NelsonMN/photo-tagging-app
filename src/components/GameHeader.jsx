@@ -8,7 +8,8 @@ import { convertTime } from '../utils/timeConverter';
 import { useEffect } from 'react';
 
 function GameHeader() {
-  const { charactersRemaining, gameStarted, time } = useContext(GameContext);
+  const { charactersRemaining, gameStarted, gameOver, time } =
+    useContext(GameContext);
 
   const [timerDisplay, setTimerDisplay] = useState(null);
 
@@ -18,7 +19,11 @@ function GameHeader() {
 
   return (
     <div
-      className={gameStarted ? 'headerContainer' : 'headerContainer inactive'}
+      className={
+        !gameStarted || gameOver
+          ? 'headerContainer inactive'
+          : 'headerContainer'
+      }
     >
       <h1 className="headerTitle">Search N64</h1>
 

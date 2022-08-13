@@ -1,4 +1,4 @@
-import '../assets/styles/startInformation.css';
+import '../assets/styles/gameStart.css';
 import GameImage from '../assets/images/N64.jpg';
 import Koopa from '../assets/images/characters/koopa.jpg';
 import Link from '../assets/images/characters/link.jpg';

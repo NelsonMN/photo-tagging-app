@@ -11,7 +11,7 @@ function App() {
   const { gameStarted, gameOver, choice } = useContext(GameContext);
 
   return (
-    <div className={gameStarted ? 'app' : 'app inactive'}>
+    <div className="app">
       <GameHeader />
       {choice.chosen &&
         !gameOver &&
@@ -21,8 +21,8 @@ function App() {
           <p className="message">That's not {choice.character}. Try again!</p>
         ))}
       {!gameStarted && <GameStart />}
-      {gameOver && <GameOver />}
       <GameImage />
+      {gameOver && <GameOver />}
       <CursorMarker />
     </div>
   );

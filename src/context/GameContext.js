@@ -6,8 +6,8 @@ import { db } from '../firebase.config';
 const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
-  const [gameStarted, setGameStarted] = useState(false);
-  const [gameOver, setGameOver] = useState(false);
+  const [gameStarted, setGameStarted] = useState(true);
+  const [gameOver, setGameOver] = useState(true);
 
   const [choosing, setChoosing] = useState(false);
   const [choice, setChoice] = useState({
@@ -49,10 +49,8 @@ export const GameProvider = ({ children }) => {
   useEffect(() => {
     if (charactersRemaining.length === 0) {
       setGameOver(true);
-      window.alert(`You won in ${time} seconds!`);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [charactersRemaining]);
+  }, [charactersRemaining, gameOver]);
 
   const getCalibratedCoordinates = (e) => {
     const offset = e.currentTarget.getBoundingClientRect();

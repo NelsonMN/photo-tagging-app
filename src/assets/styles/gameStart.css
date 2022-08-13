@@ -68,9 +68,9 @@
   border-radius: 12px;
   border: none;
   background-color: rgb(34,41,44);
-  color: #ffff;
+  color: white;
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 0.85;
   transition: 500ms;
   font-size: 1.15rem;
 }
