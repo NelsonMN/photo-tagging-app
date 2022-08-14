@@ -105,6 +105,7 @@ function GameOver() {
                 </li>
               ))}
             </ul>
+            <button>Play Again</button>
           </div>
         )}
       </div>
