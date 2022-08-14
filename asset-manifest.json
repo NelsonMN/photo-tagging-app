@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/photo-tagging-app/static/css/main.484fb71d.css",
+    "main.css": "/photo-tagging-app/static/css/main.9fd5c49d.css",
     "main.js": "/photo-tagging-app/static/js/main.4cda05f9.js",
     "static/media/N64.jpg": "/photo-tagging-app/static/media/N64.92869da7bf740f56c45d.jpg",
     "static/media/koopa.jpg": "/photo-tagging-app/static/media/koopa.c881da086251e3a34bbf.jpg",
@@ -9,11 +9,11 @@
     "static/media/Orbitron.ttf": "/photo-tagging-app/static/media/Orbitron.453377cb91a4554c36ce.ttf",
     "static/media/loader.gif": "/photo-tagging-app/static/media/loader.75e5197e96f878fa0620.gif",
     "index.html": "/photo-tagging-app/index.html",
-    "main.484fb71d.css.map": "/photo-tagging-app/static/css/main.484fb71d.css.map",
+    "main.9fd5c49d.css.map": "/photo-tagging-app/static/css/main.9fd5c49d.css.map",
     "main.4cda05f9.js.map": "/photo-tagging-app/static/js/main.4cda05f9.js.map"
   },
   "entrypoints": [
-    "static/css/main.484fb71d.css",
+    "static/css/main.9fd5c49d.css",
     "static/js/main.4cda05f9.js"
   ]
 }
