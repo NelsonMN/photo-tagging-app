@@ -2,7 +2,14 @@ import '../assets/styles/gameOver.css';
 import Loader from '../assets/images/loader.gif';
 import { convertTime } from '../utils/timeConverter';
 import { useState, useContext } from 'react';
-import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  orderBy,
+  limit,
+} from 'firebase/firestore';
 import { db } from '../firebase.config';
 import GameContext from '../context/GameContext';
 import { useEffect } from 'react';
@@ -25,7 +32,6 @@ function GameOver() {
       let userArray = [];
 
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
         userArray.push([doc.id, doc.data()]);
       });
       setUserInfo(userArray);
@@ -35,7 +41,7 @@ function GameOver() {
     setTimeout(() => {
       getN64Users();
     }, 1200);
-  }, []);
+  }, [submitted]);
 
   const handleTextChange = (e) => {
     if (e.target.value === '') {
@@ -47,16 +53,15 @@ function GameOver() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
 
-    const date = new Date();
-    const dateInSeconds = Math.floor(date.getTime() / 1000);
+    const usersRef = collection(db, 'users');
+    const data = { name, time };
+    await addDoc(usersRef, data);
 
-    const data = { name, time, dateInSeconds };
-
-    // Add doc
+    setLoading(true);
   };
 
   return (
@@ -64,12 +69,11 @@ function GameOver() {
       <h1 className="startTitle">Search N64</h1>
       <div className="gameOverDiv">
         <div className="gameOverInfoDiv">
-          <h1>Congratulations! You've found all the characters!</h1>
-          <h2>Your Time:</h2>
-          <h1>{convertTime(time)}</h1>
+          <h1 className="congrats">Congratulations! You've Won!</h1>
+          <h2 className="timeDiv">Your Time: {convertTime(time)}</h2>
 
           {submitted ? (
-            <p>Thanks for playing!</p>
+            <h1 className="thanks">Thanks for playing!</h1>
           ) : (
             <form onSubmit={handleSubmit}>
               <input
@@ -89,16 +93,14 @@ function GameOver() {
           <img src={Loader} alt="loading"></img>
         ) : (
           <div className="scoreContainer">
-            <h3 className="highScore">
-              <strong>Highscores</strong>
-            </h3>
+            <h3 className="highScore">Highscores</h3>
 
             <ul className="scoreList">
               {userInfo.map((user) => (
                 <li key={user[0]}>
-                  <div className="score">
-                    <p>{user[1].name}</p>
-                    <p>{convertTime(user[1].time)}</p>
+                  <div className="scoreDiv">
+                    <p className="userName">{user[1].name}</p>
+                    <p className="score">{convertTime(user[1].time)}</p>
                   </div>
                 </li>
               ))}
