@@ -4,7 +4,6 @@
   align-items: center;
   position: absolute;
   transform: translate(-50%, -25%);
-  -webkit-box-align: center;
 }
 
 .marker {

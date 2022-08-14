@@ -53,9 +53,8 @@ export const GameProvider = ({ children }) => {
   }, [charactersRemaining, gameOver]);
 
   const getCalibratedCoordinates = (e) => {
-    const offset = e.currentTarget.getBoundingClientRect();
-    const x = e.pageX - offset.left;
-    const y = e.pageY - offset.top;
+    const x = e.pageX;
+    const y = e.pageY;
     const coordinateX = Math.floor((x / window.innerWidth) * 100);
     const coordinateY = Math.floor((y / window.innerWidth) * 100);
 
@@ -85,6 +84,7 @@ export const GameProvider = ({ children }) => {
 
   const handleImgClick = (e) => {
     setCalibratedCoordinates(getCalibratedCoordinates(e));
+    console.log(e.pageY);
 
     setMousePosition({
       x: e.pageX,

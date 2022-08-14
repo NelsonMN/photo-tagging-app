@@ -22,13 +22,13 @@ img {
   flex-direction: column;
   position: relative;
   background: rgb(34,41,44);
-  height: 100vh;
   overflow-y: auto;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
 }
 
 .app.inactive {
   overflow-y: hidden;
+  height: 100vh;
 }
 
 .message {
