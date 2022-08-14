@@ -6,8 +6,8 @@ import { db } from '../firebase.config';
 const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
-  const [gameStarted, setGameStarted] = useState(true);
-  const [gameOver, setGameOver] = useState(true);
+  const [gameStarted, setGameStarted] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
 
   const [choosing, setChoosing] = useState(false);
   const [choice, setChoice] = useState({
