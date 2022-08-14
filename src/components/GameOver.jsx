@@ -90,7 +90,7 @@ function GameOver() {
         </div>
 
         {loading ? (
-          <img src={Loader} alt="loading"></img>
+          <img className="loader" src={Loader} alt="loading"></img>
         ) : (
           <div className="scoreContainer">
             <h3 className="highScore">Highscores</h3>
@@ -109,11 +109,17 @@ function GameOver() {
                 </li>
               ))}
             </ul>
-            <button onClick={handlePlayAgain} className="playAgain">
-              Play Again
-            </button>
           </div>
         )}
+        <button
+          onClick={() => {
+            handlePlayAgain();
+            setName('');
+          }}
+          className="startGameButton"
+        >
+          Play Again
+        </button>
       </div>
     </div>
   );
