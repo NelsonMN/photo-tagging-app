@@ -15,7 +15,7 @@ import GameContext from '../context/GameContext';
 import { useEffect } from 'react';
 
 function GameOver() {
-  const { time } = useContext(GameContext);
+  const { time, handlePlayAgain } = useContext(GameContext);
 
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(true);
@@ -98,14 +98,20 @@ function GameOver() {
             <ul className="scoreList">
               {userInfo.map((user) => (
                 <li key={user[0]}>
-                  <div className="scoreDiv">
+                  <div
+                    className={
+                      name === user[1].name ? 'active scoreDiv' : 'scoreDiv'
+                    }
+                  >
                     <p className="userName">{user[1].name}</p>
                     <p className="score">{convertTime(user[1].time)}</p>
                   </div>
                 </li>
               ))}
             </ul>
-            <button>Play Again</button>
+            <button onClick={handlePlayAgain} className="playAgain">
+              Play Again
+            </button>
           </div>
         )}
       </div>

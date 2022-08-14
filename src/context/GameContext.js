@@ -6,8 +6,8 @@ import { db } from '../firebase.config';
 const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
-  const [gameStarted, setGameStarted] = useState(false);
-  const [gameOver, setGameOver] = useState(false);
+  const [gameStarted, setGameStarted] = useState(true);
+  const [gameOver, setGameOver] = useState(true);
 
   const [choosing, setChoosing] = useState(false);
   const [choice, setChoice] = useState({
@@ -113,6 +113,13 @@ export const GameProvider = ({ children }) => {
     setChoosing(false);
   };
 
+  const handlePlayAgain = () => {
+    setGameOver(false);
+    setGameStarted(false);
+    setTime(0);
+    setCharactersRemaining(['Koopa', 'Link', 'C. Falcon']);
+  };
+
   return (
     <GameContext.Provider
       value={{
@@ -123,10 +130,11 @@ export const GameProvider = ({ children }) => {
         time,
         choosing,
         mousePosition,
+        setChoice,
         handleImgClick,
         handleStart,
         handleChoice,
-        setChoice,
+        handlePlayAgain,
       }}
     >
       {children}
