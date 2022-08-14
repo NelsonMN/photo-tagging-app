@@ -87,8 +87,8 @@ export const GameProvider = ({ children }) => {
     setCalibratedCoordinates(getCalibratedCoordinates(e));
 
     setMousePosition({
-      x: e.pageX - e.currentTarget.getBoundingClientRect().left,
-      y: e.pageY - e.currentTarget.getBoundingClientRect().top,
+      x: e.pageX,
+      y: e.pageY,
     });
 
     setChoosing(true);

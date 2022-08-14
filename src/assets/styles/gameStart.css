@@ -229,12 +229,12 @@
 
   .startInformationContainer {
     width: 350px;
-    height: 250px;
+    height: 300px;
   }
 
   .startImage {
     width: 175px;
-    height: 250px;
+    height: 300px;
     object-fit:fill;
     border-radius: 15px 0 0 15px;
   }
