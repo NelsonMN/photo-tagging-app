@@ -11,7 +11,7 @@ function App() {
   const { gameStarted, gameOver, choice } = useContext(GameContext);
 
   return (
-    <div className={gameStarted || gameOver ? 'app' : 'app inactive'}>
+    <div className={!gameStarted || gameOver ? 'app inactive' : 'app'}>
       <GameHeader />
       {choice.chosen &&
         !gameOver &&
