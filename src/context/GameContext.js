@@ -93,7 +93,6 @@ export const GameProvider = ({ children }) => {
     setChoosing(true);
   };
 
-  // If result is a match, remove it from charactersRemaining
   const handleChoice = async (e) => {
     const result = await checkForMatch(e);
 
