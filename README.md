@@ -7,7 +7,7 @@
       style="height: 500px;" 
       />
 </div>
-<br />
+
 <br />
 
 This is a full-stack photo-tagging game reminiscent of "Where's Waldo" built with React!
