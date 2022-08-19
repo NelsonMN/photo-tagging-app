@@ -84,7 +84,6 @@ export const GameProvider = ({ children }) => {
 
   const handleImgClick = (e) => {
     setCalibratedCoordinates(getCalibratedCoordinates(e));
-    console.log(e.pageY);
 
     setMousePosition({
       x: e.pageX,
