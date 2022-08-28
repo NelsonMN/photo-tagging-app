@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import GameContext from '../context/GameContext';
 import '../assets/styles/marker.css';
 

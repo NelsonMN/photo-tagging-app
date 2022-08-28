@@ -1,7 +1,7 @@
 import '../assets/styles/gameOver.css';
 import Loader from '../assets/images/loader.gif';
 import { convertTime } from '../utils/timeConverter';
-import { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   collection,
   addDoc,
@@ -12,7 +12,6 @@ import {
 } from 'firebase/firestore';
 import { db } from '../firebase.config';
 import GameContext from '../context/GameContext';
-import { useEffect } from 'react';
 
 function GameOver() {
   const { time, handlePlayAgain } = useContext(GameContext);
@@ -69,7 +68,7 @@ function GameOver() {
       <h1 className="startTitle">Search N64</h1>
       <div className="gameOverDiv">
         <div className="gameOverInfoDiv">
-          <h1 className="congrats">Congratulations! You've Won!</h1>
+          <h1 className="congrats">Congratulations! You&apos;ve Won!</h1>
           <h2 className="timeDiv">Your Time: {convertTime(time)}</h2>
 
           {submitted ? (

@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect, propTypes } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase.config';
 
@@ -138,6 +137,10 @@ export const GameProvider = ({ children }) => {
       {children}
     </GameContext.Provider>
   );
+};
+
+GameProvider.propTypes = {
+  children: propTypes.node.isRequired,
 };
 
 export default GameContext;

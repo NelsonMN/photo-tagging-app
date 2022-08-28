@@ -2,10 +2,9 @@ import '../assets/styles/gameHeader.css';
 import Koopa from '../assets/images/characters/koopa.jpg';
 import Link from '../assets/images/characters/link.jpg';
 import CaptainFalcon from '../assets/images/characters/captainFalcon.jpg';
-import { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import GameContext from '../context/GameContext';
 import { convertTime } from '../utils/timeConverter';
-import { useEffect } from 'react';
 
 function GameHeader() {
   const { charactersRemaining, gameStarted, gameOver, time } =

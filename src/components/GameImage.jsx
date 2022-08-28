@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import gameImage from '../assets/images/N64.jpg';
 import '../assets/styles/gameImage.css';
 import GameContext from '../context/GameContext';

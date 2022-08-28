@@ -3,7 +3,7 @@ import GameImage from '../assets/images/N64.jpg';
 import Koopa from '../assets/images/characters/koopa.jpg';
 import Link from '../assets/images/characters/link.jpg';
 import CaptainFalcon from '../assets/images/characters/captainFalcon.jpg';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import GameContext from '../context/GameContext';
 
 function GameStart() {

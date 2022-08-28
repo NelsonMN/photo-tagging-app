@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import './assets/styles/app.css';
 import GameHeader from './components/GameHeader';
 import GameImage from './components/GameImage';
@@ -18,7 +18,9 @@ function App() {
         (choice.correct ? (
           <p className="message">You found {choice.character}. Great job!</p>
         ) : (
-          <p className="message">That's not {choice.character}. Try again!</p>
+          <p className="message">
+            That&apos;s not {choice.character}. Try again!
+          </p>
         ))}
       {!gameStarted && <GameStart />}
       {gameOver && <GameOver />}
